@@ -18,7 +18,7 @@ ledger:
     driver: "postgres"
     connString: "postgresql://ledger:ledger@127.0.0.1/ledger"
   lock:
-    strategy: "redis" # memory or redis
+    strategy: "memory" # memory or redis
     tls: false
     connString: "redis://redis:6379/0"
 
