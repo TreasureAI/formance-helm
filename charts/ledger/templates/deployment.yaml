@@ -69,7 +69,7 @@ spec:
         - name: cloud-sql-proxy
           command:
               - /cloud_sql_proxy
-              - instances={{ .Values.gkeCloudSql.dbhost }}
+              - -instances={{ .Values.gkeCloudSql.dbhost }}
           image: {{ .Values.gkeCloudSql.repository }}:{{ .Values.gkeCloudSql.tag }}
           imagePullPolicy: {{ .Values.gkeCloudSql.pullPolicy }}
           resources:
