@@ -13,14 +13,15 @@ image:
 ledger:
   httpBindAddr: "0.0.0.0:3068"
 #  UIHttpBindAddr: "0.0.0.0:3078"
-  login: "ledger:ledger"
+#  login: "ledger:ledger"
+  debug: "true"
   storage:
     driver: "postgres"
     connString: "postgresql://$(PG_USER):$(PG_PASSWORD)@$(PG_HOST)/ledger"
   lock:
     strategy: "redis" # memory or redis
     tls: false
-    connString: "redis://redis:6379/0"
+    connString: "redis://redis-bitnami-master.default.svc.cluster.local:6379/0"
 
 imagePullSecrets:
 nameOverride: ""

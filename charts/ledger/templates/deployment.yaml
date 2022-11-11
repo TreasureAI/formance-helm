@@ -49,8 +49,10 @@ spec:
               value: {{ .Values.ledger.lock.connString | quote }}
             - name: NUMARY_SERVER_HTTP_BIND_ADDRESS
               value: {{ .Values.ledger.httpBindAddr | quote }}
-            - name: NUMARY_AUTH_BASIC_CREDENTIALS
-              value: {{ .Values.ledger.login | quote }}
+            # - name: NUMARY_AUTH_BASIC_CREDENTIALS
+            #   value: {{ .Values.ledger.login | quote }}
+            - name: NUMARY_DEBUG
+              value: {{ .Values.ledger.debug | quote }}
           ports:
             - name: ledger
               containerPort: 3068
