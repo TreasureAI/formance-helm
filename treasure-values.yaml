@@ -21,7 +21,7 @@ ledger:
   lock:
     strategy: "redis" # memory or redis
     tls: false
-    connString: "redis://redis-bitnami-master.default.svc.cluster.local:6379/0"
+    connString: "redis://default:$(REDIS_PASSWORD)@redis-master:6379/0"
 
 imagePullSecrets:
 nameOverride: ""
@@ -129,5 +129,5 @@ gkeCloudSql:
     - name: PG_PASSWORD
       valueFrom:
         secretKeyRef:
-          key: pass
+          key: password
           name: db-creds

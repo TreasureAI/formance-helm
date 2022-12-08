@@ -13,14 +13,14 @@ image:
 ledger:
   httpBindAddr: "0.0.0.0:3068"
 #  UIHttpBindAddr: "0.0.0.0:3078"
-  login: "ledger:ledger"
+#  login: "ledger:ledger"
   storage:
     driver: "postgres"
     connString: "postgresql://$(PG_USER):$(PG_PASSWORD)@$(PG_HOST)/ledger"
   lock:
     strategy: "memory" # memory or redis
     tls: false
-    connString: "redis://redis:6379/0"
+    connString: "redis://default:$(REDIS_PASSWORD)@redis-master:6379/0"
 
 imagePullSecrets:
 nameOverride: ""
@@ -74,8 +74,8 @@ resources:
   # resources, such as Minikube. If you do want to specify resources, uncomment the following
   # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
   limits:
-    cpu: 100m
-    memory: 128Mi
+    cpu: 200m
+    memory: 228Mi
   requests:
     cpu: 100m
     memory: 128Mi
