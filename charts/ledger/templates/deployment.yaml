@@ -37,6 +37,13 @@ spec:
             {{- if .Values.gkeCloudSql.enabled -}}
             {{- toYaml .Values.gkeCloudSql.secrets | nindent 12}}
             {{- end }}
+            - name: REDIS_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: redis
+                  key: redis-password
+                  optional: false
+              value: {{ .Values.ledger.redis_secret | quote }}
             - name: NUMARY_STORAGE_DRIVER
               value: {{ .Values.ledger.storage.driver | quote }}
             - name: NUMARY_STORAGE_POSTGRES_CONN_STRING
@@ -51,6 +58,13 @@ spec:
               value: {{ .Values.ledger.httpBindAddr | quote }}
             # - name: NUMARY_AUTH_BASIC_CREDENTIALS
             #   value: {{ .Values.ledger.login | quote }}
+            - name: REDIS_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: redis
+                  key: redis-password
+                  optional: false
+              value: {{ .Values.ledger.redis_secret | quote }}
             - name: NUMARY_DEBUG
               value: {{ .Values.ledger.debug | quote }}
           ports:
