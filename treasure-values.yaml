@@ -5,10 +5,10 @@
 replicaCount: 1
 
 image:
-  repository: ghcr.io/numary/ledger
+  repository: ghcr.io/formancehq/ledger
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "v1.7.1"
+  tag: "46d361411ec192ed2150c5ddfc2968d13ca702d2"
 
 ledger:
   httpBindAddr: "0.0.0.0:3068"
